@@ -1,0 +1,29 @@
+{% extends 'Shop/base.html' %}
+{% load static %}
+
+
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+    <h2>Electrophy | Keyboard</h2>
+    <!-- Slider 1 -->
+    <div class="owl-carousel" id="slider1">
+        {% for K in Keyboard %}
+        <div class="card bg-dark "><a href="{% url 'product-detail' K.id %}" class="btn">
+            <div class="item"><img src="{{K.product_image.url}}" alt="" height="200px"><span
+                    class="fw-bold">{{K.title}}</span><br><span class="fs-5 " style="color: white;">Tk.
+                        {{K.discounted_price}}</span> <span class="fs-5 fw-light text-decoration-line-through"
+                        style="color: red;">
+                        <b>{{K.selling_price}}</b>
+                    </span></div>
+        </a>
+    </div>
+        
+        {% endfor %}
+        
+    </div>
+</div>
+
+{% endblock main-content %}
+
